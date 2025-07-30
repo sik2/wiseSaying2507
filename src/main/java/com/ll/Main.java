@@ -7,7 +7,7 @@ public class Main {
         System.out.println("== 명언 앱 ==");
 
         Scanner scanner = new Scanner(System.in);
-
+        WiseSaying wiseSaying = null;
         int lastId = 0;
         while (true) {
             System.out.print("명령) ");
@@ -25,17 +25,18 @@ public class Main {
 
                 int id = ++lastId;
 
-                WiseSaying wiseSaying = new WiseSaying();
+                wiseSaying = new WiseSaying();
 
                 wiseSaying.id = id;
                 wiseSaying.author = wiseSayingAuthor;
                 wiseSaying.content = wiseSayingContent;
 
-                System.out.println("wiseSaying.id" + wiseSaying.id);
-                System.out.println("wiseSaying.author" + wiseSaying.author);
-                System.out.println("wiseSaying.content" + wiseSaying.content);
-
                 System.out.println("%d번 명언이 등록되었습니다.".formatted(id) );
+            } else if (cmd.equals("목록")) {
+                System.out.println("번호 / 작가 / 명언");
+                System.out.println("----------------------");
+
+                System.out.println("%d / %s / %s".formatted(wiseSaying.id, wiseSaying.author, wiseSaying.content));
             }
         }
 
