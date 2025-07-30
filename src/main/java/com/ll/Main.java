@@ -23,10 +23,19 @@ public class Main {
                 System.out.print("작가: ");
                 String wiseSayingAuthor = scanner.nextLine().trim();
 
-                int no = ++lastId;
+                int id = ++lastId;
 
-//               System.out.printf("%d번 명언이 등록되었습니다.\n", no);
-                System.out.println("%d번 명언이 등록되었습니다.".formatted(no) );
+                WiseSaying wiseSaying = new WiseSaying();
+
+                wiseSaying.id = id;
+                wiseSaying.author = wiseSayingAuthor;
+                wiseSaying.content = wiseSayingContent;
+
+                System.out.println("wiseSaying.id" + wiseSaying.id);
+                System.out.println("wiseSaying.author" + wiseSaying.author);
+                System.out.println("wiseSaying.content" + wiseSaying.content);
+
+                System.out.println("%d번 명언이 등록되었습니다.".formatted(id) );
             }
         }
 
