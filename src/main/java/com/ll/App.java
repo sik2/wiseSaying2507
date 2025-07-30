@@ -23,9 +23,10 @@ public class App {
             actionWrite();
           } else if (cmd.equals("목록")) {
               actionList();
+          } else if (cmd.startsWith("삭제")) {
+              actionDelete();
           }
       }
-
       scanner.close();
     }
 
@@ -57,5 +58,9 @@ public class App {
             WiseSaying wiseSaying = wiseSayingList.get(i);
             System.out.println("%d / %s / %s".formatted(wiseSaying.getId(), wiseSaying.getId(), wiseSaying.getContent()));
         }
+    }
+
+    void actionDelete() {
+        System.out.println("삭제가능");
     }
 }
