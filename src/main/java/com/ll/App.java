@@ -31,22 +31,22 @@ public class App {
 
     void actionWrite() {
         System.out.print("명언: ");
-        String wiseSayingContent = scanner.nextLine().trim();
+        String content = scanner.nextLine().trim();
 
         System.out.print("작가: ");
-        String wiseSayingAuthor = scanner.nextLine().trim();
+        String author = scanner.nextLine().trim();
 
-        int id = ++lastId;
+        WiseSaying wiseSaying = write(author, content);
 
-        WiseSaying wiseSaying = new WiseSaying();
+        System.out.println("%d번 명언이 등록되었습니다.".formatted(wiseSaying.getId()));
+    }
 
-        wiseSaying.id = id;
-        wiseSaying.author = wiseSayingAuthor;
-        wiseSaying.content = wiseSayingContent;
+    WiseSaying write (String author, String content) {
+        WiseSaying wiseSaying = new WiseSaying(++lastId, author, content );
 
         wiseSayingList.add(wiseSaying);
 
-        System.out.println("%d번 명언이 등록되었습니다.".formatted(id) );
+        return wiseSaying;
     }
 
     void actionList() {
@@ -55,7 +55,7 @@ public class App {
 
         for (int i = wiseSayingList.size() - 1; i >=0; i--) {
             WiseSaying wiseSaying = wiseSayingList.get(i);
-            System.out.println("%d / %s / %s".formatted(wiseSaying.id, wiseSaying.author, wiseSaying.content));
+            System.out.println("%d / %s / %s".formatted(wiseSaying.getId(), wiseSaying.getId(), wiseSaying.getContent()));
         }
     }
 }
