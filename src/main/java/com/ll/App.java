@@ -24,7 +24,7 @@ public class App {
           } else if (cmd.equals("목록")) {
               actionList();
           } else if (cmd.startsWith("삭제")) {
-              actionDelete();
+              actionDelete(cmd);
           }
       }
       scanner.close();
@@ -60,7 +60,16 @@ public class App {
         }
     }
 
-    void actionDelete() {
-        System.out.println("삭제가능");
+    void actionDelete(String cmd) {
+        String[] cmdBits = cmd.split("=");
+
+        if (cmdBits.length < 2 ||  cmdBits[1].isEmpty()) {
+            System.out.println("id를 입력해주세요.");
+            return;
+        }
+
+        int id = Integer.parseInt(cmdBits[1]);
+
+        System.out.println("%d번 명언이 삭제되었습니다.".formatted(id));
     }
 }
