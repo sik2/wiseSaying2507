@@ -1,6 +1,7 @@
 package com.ll;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -144,5 +145,18 @@ public class App {
         }
 
         return Integer.parseInt(cmdBits[1]);
+
+//        return Arrays.stream(cmd.split("="))
+//                .skip(1)
+//                .findFirst()
+//                .filter(s -> !s.isEmpty())
+//                .map(Integer::parseInt)
+//                .orElseGet(() -> {
+//                    System.out.println("id를 입력해주세요.");
+//                    return -1;
+//                });
+
+    }
+
     }
  }
