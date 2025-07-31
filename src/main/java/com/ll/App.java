@@ -1,7 +1,6 @@
 package com.ll;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -93,6 +92,7 @@ public class App {
 
     void delete(WiseSaying wiseSaying) {
         wiseSayingList.remove(wiseSaying);
+//        wiseSayingList.removeIf(ws -> ws.getId() == wiseSaying.getId());
     }
 
     void actionModify(String cmd) {
@@ -155,8 +155,5 @@ public class App {
 //                    System.out.println("id를 입력해주세요.");
 //                    return -1;
 //                });
-
-    }
-
     }
  }
