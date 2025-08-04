@@ -1,22 +1,27 @@
 package com.ll;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class WiseSaying {
-    private final  int id;
+    private int id;
     private String author;
     private String content;
     private LocalDateTime createDate;
     private LocalDateTime modifyDate;
+    private DateTimeFormatter forPrintDateTimeFormatter = DateTimeFormatter.ofPattern("yy-MM-dd HH:mm:ss");
 
-    public WiseSaying (int id, String author, String content) {
-        this.id = id;
+    public WiseSaying (String author, String content) {
         this.author = author;
         this.content = content;
     }
 
     public int getId() {
         return this.id;
+    }
+
+    public void setId(int id) {
+       this.id = id;
     }
 
     public String getAuthor() {
@@ -49,5 +54,17 @@ public class WiseSaying {
 
     public void setModifyDate(LocalDateTime modifyDate) {
         this.modifyDate = modifyDate;
+    }
+
+    public boolean isNew() {
+        return getId() == 0;
+    }
+
+    public String getForPrintCreateDate() {
+        return createDate.format(forPrintDateTimeFormatter);
+    }
+
+    public String getForPrintModifyDate() {
+        return modifyDate.format(forPrintDateTimeFormatter);
     }
 }
